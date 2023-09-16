@@ -1,16 +1,16 @@
-= Talk: Domine a complexidade e os desafios da integração NoSQL em aplicações Java cloud-native
+== Talk: Domine a complexidade e os desafios da integração NoSQL em aplicações Java cloud-native
 
-== Link da apresentação:
+=== Link da apresentação:
 
 * https://docs.google.com/presentation/d/1Nk_MacToDpx5jeN_IEdhrH7K8IypWz9WV6lCMY-l4Xo/edit?usp=sharing[window=_blank]
 
-== Pré requisitos para executar esse projeto
+=== Pré requisitos para executar esse projeto
 
 * Java 17 ou superior
 * https://www.docker.com/[Docker,window=_blank]
 * https://docs.docker.com/compose/install/[Docker Compose]
 
-== Inicializar os bancos de dados MongoDB e Couchbase
+=== Inicializar os bancos de dados MongoDB e Couchbase
 
 . Inicializando o container MongoDB:
 +
@@ -62,7 +62,7 @@ mvnw.cmd clean verify
 mvn clean verify
 ----
 
-== Configurando o cluster Couchbase
+=== Configurando o cluster Couchbase
 
 . Com o container Couchbase inicializado, acesse: http://localhost:8091/ui/index.html
 . Selecione a opção "Setup New Cluster"
@@ -81,7 +81,7 @@ mvn clean verify
 CREATE PRIMARY INDEX primaryDeveloper ON nosqlsp._default.Developer
 ----
 
-== Links e Referências
+=== Links e Referências
 
 * https://jakarta.ee/specifications/nosql/[Jakarta NoSQL,window=_blank]
 * https://jakarta.ee/specifications/data/[Jakarta Data,window=_blank]
