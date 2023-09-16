@@ -1,0 +1,89 @@
+= Talk: Domine a complexidade e os desafios da integração NoSQL em aplicações Java cloud-native
+
+== Link da apresentação:
+
+* https://docs.google.com/presentation/d/1Nk_MacToDpx5jeN_IEdhrH7K8IypWz9WV6lCMY-l4Xo/edit?usp=sharing[window=_blank]
+
+== Pré requisitos para executar esse projeto
+
+* Java 17 ou superior
+* https://www.docker.com/[Docker,window=_blank]
+* https://docs.docker.com/compose/install/[Docker Compose]
+
+== Inicializar os bancos de dados MongoDB e Couchbase
+
+. Inicializando o container MongoDB:
++
+[source, bash]
+----
+docker run -d --name mongodb-instance \
+  -p 27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=root \
+  -e MONGO_INITDB_ROOT_PASSWORD=example mongo
+----
+. Inicializando o container Couchbase:
++
+[source, bash]
+----
+docker run -d --name db \
+  -p 8091-8097:8091-8097 \
+  -p 9123:9123 \
+  -p 11207:11207 \
+  -p 11210:11210 \
+  -p 11280:11280 \
+  -p 18091-18097:18091-18097 couchbase
+----
+. Como opção, você pode inicializar os containers com o Docker Compose:
++
+[source, bash]
+----
+docker-compose up -d
+----
+
+. O projeto utiliza o https://maven.apache.org/wrapper/[Maven Wrapper,window=_blank], logo basta executar o comando Maven abaixo para realizar o build do projeto:
+.. Linux/Mac:
++
+[source, bash]
+----
+./mvnw clean verify
+----
+
+.. Windows:
++
+[source, bash]
+----
+mvnw.cmd clean verify
+----
+
+. Agora, caso tenha o Maven instalado em seu ambiente, então basta você executar o comando Maven abaixo para realizar o build do projeto:
++
+[source, bash]
+----
+mvn clean verify
+----
+
+== Configurando o cluster Couchbase
+
+. Com o container Couchbase inicializado, acesse: http://localhost:8091/ui/index.html
+. Selecione a opção "Setup New Cluster"
+. Define um nome para o nome do cluster
+. Defina "root" como `Admin username`
+. Defina "123456" como `Password`
+. Marque "I accept the terms and conditions" e clique no botão "Finish With Defaults"
+. Vá até a sessão "Buckets"
+. Crie um Bucket "nosqlsp" clicando na opção "Add Bucket"
+. Clique em "Scopes & Collections" e então clique em "Add Collection"
+. Informe "Developer" como o nome da collection e clique no botão "Save" para concluir sua criação
+. Agora, na sessão "Query", execute esse comando https://www.couchbase.com/products/n1ql/[N1QL,window=_blank] para criar o índice primário da collection "Developer":
++
+[source, n1ql]
+----
+CREATE PRIMARY INDEX primaryDeveloper ON nosqlsp._default.Developer
+----
+
+== Links e Referências
+
+* https://jakarta.ee/specifications/nosql/[Jakarta NoSQL,window=_blank]
+* https://jakarta.ee/specifications/data/[Jakarta Data,window=_blank]
+* https://microprofile.io/[Eclipse Microprofile,window=_blank]
+* https://jakarta.ee/[Jakarta EE,window=_blank]
