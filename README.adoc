@@ -14,7 +14,7 @@
 
 . Inicializando o container MongoDB:
 +
-[source, bash]
+[source,bash]
 ----
 docker run -d --name mongodb-instance \
   -p 27017:27017 \
@@ -23,7 +23,7 @@ docker run -d --name mongodb-instance \
 ----
 . Inicializando o container Couchbase:
 +
-[source, bash]
+[source,bash]
 ----
 docker run -d --name db \
   -p 8091-8097:8091-8097 \
@@ -35,29 +35,29 @@ docker run -d --name db \
 ----
 . Como opção, você pode inicializar os containers com o Docker Compose:
 +
-[source, bash]
+[source,bash]
 ----
 docker-compose up -d
 ----
 
-. O projeto utiliza o https://maven.apache.org/wrapper/[Maven Wrapper,window=_blank], logo basta executar o comando Maven abaixo para realizar o build do projeto:
+. O projeto utiliza o https://maven.apache.org/wrapper/[Maven Wrapper,window=_blank], logo não exige que você tenha o https://maven.apache.org/index.html[Maven,window=_blank] pré configurado em seu ambiente, com isso basta executar o comando Maven abaixo para realizar o build do projeto:
 .. Linux/Mac:
 +
-[source, bash]
+[source,bash]
 ----
 ./mvnw clean verify
 ----
 
 .. Windows:
 +
-[source, bash]
+[source,bash]
 ----
 mvnw.cmd clean verify
 ----
 
-. Agora, caso tenha o Maven instalado em seu ambiente, então basta você executar o comando Maven abaixo para realizar o build do projeto:
+. Agora, caso tenha o https://maven.apache.org/index.html[Maven,window=_blank] instalado em seu ambiente, então basta você executar o comando Maven abaixo para realizar o build do projeto:
 +
-[source, bash]
+[source,bash]
 ----
 mvn clean verify
 ----
@@ -76,7 +76,7 @@ mvn clean verify
 . Informe "Developer" como o nome da collection e clique no botão "Save" para concluir sua criação
 . Agora, na sessão "Query", execute esse comando https://www.couchbase.com/products/n1ql/[N1QL,window=_blank] para criar o índice primário da collection "Developer":
 +
-[source, n1ql]
+[source,n1ql]
 ----
 CREATE PRIMARY INDEX primaryDeveloper ON nosqlsp._default.Developer
 ----
