@@ -1,8 +1,6 @@
 == Talk: Domine a complexidade e os desafios da integração NoSQL em aplicações Java cloud-native
 
-=== Link da apresentação:
-
-* https://docs.google.com/presentation/d/1Nk_MacToDpx5jeN_IEdhrH7K8IypWz9WV6lCMY-l4Xo/edit?usp=sharing[window=_blank]
+=== Confira a apresentação: https://link.maxdearruda.com/domine-integracao-nosql-java[aqui,window=_blank]
 
 === Pré requisitos para executar esse projeto
 
